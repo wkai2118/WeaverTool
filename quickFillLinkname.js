@@ -4,11 +4,11 @@ window.onload = function () {
         var hash = url.hash;
         var re = "#/workflowengine/path/pathSet/pathDetail/flowSet/nodeLinkInfo";
         var fi = '#/workflowengine/path/pathSet/pathDetail/formManage/editField';
-        console.log(hash);
+        // console.log(hash);
         if (hash.startsWith(re)) {
             addFillLinknameBtn();
         } else if (hash.startsWith(fi)) {
-            console.log(1);
+            // console.log(1);
             addExportFlowFieldsBtn();
         } else {
             removeFillLinknameBtn();
@@ -40,16 +40,20 @@ window.onload = function () {
  */
 function addFillLinknameBtn() {
     window.setTimeout(function () {
-        if ($("[ecid='wea_auto_exportname']").length == 0) {
-            $(`
-                <span style="display: inline-block; line-height: 28px; vertical-align: middle; margin-left: 10px;">
-                    <button type="button" ecid="wea_auto_exportname" class="ant-btn"><span>一键填充出口</span>
-                    </button>
-                </span>
-            `).insertAfter(`[ecid='_Route@y7eejl_Button@x1gncy@save_button@xq1ea3']`);
-            $("[ecid='wea_auto_exportname']").click(function () {
-                quickFillLinkname();
-            })
+        try {
+            if ($("[ecid='wea_auto_exportname']").length == 0) {
+                    $(`
+                        <span style="display: inline-block; line-height: 28px; vertical-align: middle; margin-left: 10px;">
+                            <button type="button" ecid="wea_auto_exportname" class="ant-btn"><span>一键填充出口</span>
+                            </button>
+                        </span>
+                    `).insertAfter(`[ecid='_Route@y7eejl_Button@x1gncy@save_button@xq1ea3']`);
+                $("[ecid='wea_auto_exportname']").click(function () {
+                    quickFillLinkname();
+                })
+            }
+        } catch (error) {
+            console.log(error);
         }
     }, 200);
 }
@@ -109,16 +113,20 @@ function quickFillLinkname() {
  */
 function addExportFlowFieldsBtn() {
     window.setTimeout(function () {
-        if ($("[ecid='wea_auto_exportname']").length == 0) {
-            $(`
-            <span style="display: inline-block; line-height: 28px; vertical-align: middle; margin-left: 10px;">
-                <button type="button" ecid="wea_auto_exportfield" class="ant-btn"><span>导出表单字段</span>
-                </button>
-            </span>
-            `).insertBefore(`[ecid='_Route@n4jpza_PathSetTop@33xct8_WeaTop@jfws6j_RightColCom@a10dl7_span_dropIcon@w5r91g']`);
-            $("[ecid='wea_auto_exportfield']").click(function () {
-                exportFields();
-            })
+        try {
+            if ($("[ecid='wea_auto_exportname']").length == 0) {
+                $(`
+                <span style="display: inline-block; line-height: 28px; vertical-align: middle; margin-left: 10px;">
+                    <button type="button" ecid="wea_auto_exportfield" class="ant-btn"><span>导出表单字段</span>
+                    </button>
+                </span>
+                `).insertBefore(`[ecid='_Route@n4jpza_PathSetTop@33xct8_WeaTop@jfws6j_RightColCom@a10dl7_span_dropIcon@w5r91g']`);
+                $("[ecid='wea_auto_exportfield']").click(function () {
+                    exportFields();
+                })
+            }
+        } catch (error) {
+            console.log(error);
         }
     }, 200);
 }
