@@ -2,7 +2,7 @@ $(function () {
     /**
      * 绑定表单管理菜单tab页切换事件
      */
-    $("#tableset .tab_menu #tab01,#tab02,#tab04,#tab05").unbind("click").click(function () {
+    $("#tableset .tab_menu #tab01,#tab02,#tab04,#tab05").click(function () {
         // console.log($("#tableset .tab_menu .current").attr("id"));//tab02为编辑字段
         var currentTabId = $("#tableset .tab_menu .current").attr("id");
         if (currentTabId == "tab02") {
